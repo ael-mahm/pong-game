@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --hue: 200;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $background-color;
+  line-height: 1.5;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.paddle {
+  --position: 50;
+
+  position: absolute;
+  top: calc(var(--position) * 1vh);
+  transform: translateY(-50%);
+  width: 1vh;
+  height: 10vh;
+  background: $foreground-color;
+
+  &.left {
+    left: 1vw;
+  }
+
+  &.right {
+    right: 1vw;
+  }
+}
+
+.ball {
+  --x: 50;
+  --y: 50;
+
+  position: absolute;
+  left: calc(var(--x) * 1vw);
+  top: calc(var(--y) * 1vh);
+  transform: translate(-50%, -50%);
+  width: 2.5vh;
+  height: 2.5vh;
+  background-color: $foreground-color;
+  border-radius: 50%;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  color: $foreground-color;
+  font-weight: bold;
+  font-size: 7vh;
+
+  &>* {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 1vh 0;
+    padding: 0 2vh;
+    opacity: .5;
+  }
+
+  &> :first-child {
+    border-right: .5vh solid $foreground-color;
+    text-align: center;
+  }
+}
